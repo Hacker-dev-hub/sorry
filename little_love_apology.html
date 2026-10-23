@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Note for My Favorite Person 💗</title>
+<style>
+  :root { --pink:#ff6f9f; --deep:#a83e69; --cream:#fff8fb; --ink:#60394b; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; overflow-x:hidden;
+    font-family: "Trebuchet MS", system-ui, sans-serif; color:var(--ink);
+    background: radial-gradient(circle at 15% 15%, #ffe2ed 0, transparent 30%),
+                radial-gradient(circle at 90% 80%, #ffd7e8 0, transparent 28%),
+                linear-gradient(135deg,#fff8fb,#ffeef5 55%,#fff5f8);
+    display:grid; place-items:center; padding:24px;
+  }
+  .hearts { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
+  .heart { position:absolute; bottom:-50px; opacity:0; animation:floatUp linear infinite; }
+  @keyframes floatUp {
+    0% { transform:translateY(0) rotate(0deg) scale(.8); opacity:0; }
+    12% { opacity:.65; } 85% { opacity:.5; }
+    100% { transform:translateY(-115vh) rotate(35deg) scale(1.25); opacity:0; }
+  }
+  .card {
+    width:min(100%, 650px); position:relative; z-index:1; text-align:center;
+    background:rgba(255,255,255,.82); border:1px solid rgba(255,255,255,.95);
+    border-radius:30px; padding:clamp(26px,6vw,52px);
+    box-shadow:0 22px 70px rgba(177,75,116,.16);
+    backdrop-filter:blur(10px);
+  }
+  .tiny { color:#c56b8d; letter-spacing:.18em; text-transform:uppercase; font-size:.72rem; font-weight:800; }
+  .big-heart { font-size:3.5rem; display:inline-block; filter:drop-shadow(0 8px 12px #ffc3d8); animation:beat 1.5s ease-in-out infinite; }
+  @keyframes beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.12)} }
+  h1 { font-family:Georgia,serif; font-weight:normal; font-size:clamp(2.2rem,8vw,3.6rem); line-height:1.06; margin:14px 0; color:var(--deep); }
+  .subtitle { font-size:1.04rem; line-height:1.7; max-width:470px; margin:0 auto 24px; }
+  .note { background:#fff6fa; border:1px dashed #f2b4ca; border-radius:20px; padding:22px; text-align:left; line-height:1.8; }
+  .note p { margin:0 0 14px; } .note p:last-child { margin-bottom:0; }
+  .signature { margin-top:20px; font-family:Georgia,serif; font-style:italic; color:var(--deep); font-size:1.3rem; }
+  button {
+    margin-top:24px; border:0; border-radius:999px; padding:14px 23px; cursor:pointer;
+    background:linear-gradient(135deg,#ff8eb4,#f45e94); color:white; font-size:1rem; font-weight:800;
+    box-shadow:0 9px 22px rgba(244,94,148,.28); transition:transform .2s, box-shadow .2s;
+  }
+  button:hover { transform:translateY(-2px); box-shadow:0 12px 27px rgba(244,94,148,.36); }
+  button:focus-visible { outline:3px solid #a83e69; outline-offset:4px; }
+  #surprise { display:none; margin-top:20px; padding:20px; border-radius:18px; background:#fff0f6; line-height:1.8; animation:fade .45s ease; }
+  #surprise.show { display:block; }
+  @keyframes fade { from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)} }
+  .footer { margin-top:25px; color:#b77b93; font-size:.8rem; }
+  .sparkle { color:#f09abb; }
+  @media (prefers-reduced-motion: reduce) {
+    *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; transition:none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts" aria-hidden="true"></div>
+<main class="card">
+  <div class="tiny">A little note, just for you</div>
+  <div class="big-heart" aria-hidden="true">💗</div>
+  <h1>I'm sorry,<br>my favorite person.</h1>
+  <p class="subtitle">If I could give you one thing right now, it would be a little reminder of how loved you are — especially on a day when I may not have made you feel that way.</p>
+
+  <section class="note" aria-label="Apology letter">
+    <p>My love, 💌</p>
+    <p>I'm truly sorry for hurting you. I know that saying “sorry” doesn't magically fix everything, and I don't expect a few sweet words to make your feelings disappear.</p>
+    <p>You mean so much to me, and your feelings deserve to be heard, understood, and cared for. I wish I could take back the moment that hurt you, but what I can do is own my part, listen to you, and try to do better through my actions — not just my words.</p>
+    <p>You bring so much warmth and happiness into my life. I love your smile, your little ways, and all the ordinary moments that become special simply because they're with you. I never want you to feel that your heart is something I take for granted.</p>
+    <p>You don't have to forgive me before you're ready. Whenever you feel comfortable, I'd love to listen, understand what you need, and work through this together. You matter to me, and so does the trust between us.</p>
+    <p>I'm sorry, sweetheart. Sending you the gentlest hug, a thousand forehead kisses, and all the love in my heart. 🥺💕</p>
+  </section>
+
+  <div class="signature">With all my love, always. ♡</div>
+  <button id="surpriseBtn" type="button" aria-expanded="false" aria-controls="surprise">Open your little surprise 💝</button>
+  <div id="surprise" role="status">
+    <div style="font-size:2rem">🌷 🧸 💌</div>
+    <strong>One tiny promise:</strong><br>
+    I will keep learning how to love you in the ways you need, not only in the ways that feel easy to me. You deserve patience, honesty, respect, and care — every day.
+    <br><span class="sparkle">You are precious to me. No pressure, just love. 💗</span>
+  </div>
+  <div class="footer">Made with a soft heart & a sincere apology <span aria-hidden="true">♡</span></div>
+</main>
+<script>
+  const heartField = document.getElementById('hearts');
+  const symbols = ['♡','♥','💕','✧','💗'];
+  for (let i = 0; i < 22; i++) {
+    const heart = document.createElement('span');
+    heart.className = 'heart';
+    heart.textContent = symbols[i % symbols.length];
+    heart.style.left = (Math.random() * 100) + '%';
+    heart.style.fontSize = (14 + Math.random() * 20) + 'px';
+    heart.style.animationDuration = (9 + Math.random() * 12) + 's';
+    heart.style.animationDelay = (-Math.random() * 18) + 's';
+    heartField.appendChild(heart);
+  }
+  const button = document.getElementById('surpriseBtn');
+  const surprise = document.getElementById('surprise');
+  button.addEventListener('click', () => {
+    const isOpen = surprise.classList.toggle('show');
+    button.setAttribute('aria-expanded', String(isOpen));
+    button.textContent = isOpen ? 'Sending you another hug 💗' : 'Open your little surprise 💝';
+  });
+</script>
+</body>
+</html>
